@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CE Walk–Run | ภาควิชาคอมพิวเตอร์ศึกษา</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ce-green:#1f9d55; --ce-teal:#12a4a4; --ce-dark:#0e2a33;
+    --pink:#e8318f; --grad:linear-gradient(135deg,#12a4a4,#1f9d55);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Noto Sans Thai',sans-serif;color:var(--ce-dark);background:#f5f8f8;line-height:1.7}
+  a{text-decoration:none}
+
+  /* NAVBAR */
+  header{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 2px 14px rgba(0,0,0,.08)}
+  .nav{max-width:1150px;margin:auto;display:flex;align-items:center;gap:14px;padding:10px 20px}
+  .nav img{height:48px}
+  .brand b{display:block;font-size:1.05rem}
+  .brand span{font-size:.78rem;color:#5b7a80}
+  .nav-links{margin-left:auto;display:flex;gap:22px;font-size:.92rem}
+  .nav-links a{color:var(--ce-dark)}
+  .nav-links a:hover{color:var(--ce-green)}
+  .btn{display:inline-block;background:var(--grad);color:#fff;padding:12px 28px;border-radius:50px;
+       font-weight:800;box-shadow:0 8px 20px rgba(18,164,164,.35);transition:.25s}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(18,164,164,.45)}
+  .btn-sm{padding:9px 20px;font-size:.88rem;box-shadow:none}
+
+  /* HERO */
+  .hero{position:relative;min-height:88vh;display:flex;align-items:center;justify-content:center;
+        text-align:center;color:#fff;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:url('hero.jpg') center/cover;
+        transform:scale(1.05);filter:brightness(.55)}
+  .hero-in{position:relative;padding:40px 20px;max-width:900px}
+  .hero-logo{width:110px;background:#fff;border-radius:50%;padding:12px;margin-bottom:18px;
+        box-shadow:0 10px 30px rgba(0,0,0,.4)}
+  .tag{display:inline-block;background:var(--pink);padding:5px 18px;border-radius:50px;
+        font-size:.85rem;font-weight:600;margin-bottom:14px}
+  .hero h1{font-size:clamp(2rem,5.5vw,3.6rem);font-weight:800;line-height:1.25;text-shadow:0 4px 18px rgba(0,0,0,.6)}
+  .hero h1 em{font-style:normal;color:#5ee7a1}
+  .hero p{margin:16px 0 28px;font-size:1.05rem;opacity:.95}
+  .meta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px;font-size:.9rem}
+  .meta div{background:rgba(255,255,255,.16);backdrop-filter:blur(6px);
+        border:1px solid rgba(255,255,255,.3);padding:8px 18px;border-radius:50px}
+
+  /* SECTIONS */
+  section{max-width:1150px;margin:auto;padding:70px 20px}
+  .title{text-align:center;margin-bottom:40px}
+  .title h2{font-size:1.9rem;font-weight:800}
+  .title p{color:#5b7a80}
+  .title .bar{width:70px;height:5px;background:var(--grad);border-radius:5px;margin:12px auto 0}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:22px}
+  .card{background:#fff;border-radius:18px;padding:28px;border-top:5px solid var(--ce-teal);
+        box-shadow:0 6px 22px rgba(14,42,51,.07);transition:.25s}
+  .card:hover{transform:translateY(-6px);box-shadow:0 14px 32px rgba(14,42,51,.14)}
+  .card .ico{font-size:2.1rem;margin-bottom:10px}
+  .card h3{font-size:1.2rem;margin-bottom:6px}
+  .price{font-weight:800;color:var(--pink);font-size:1.35rem;margin-top:10px}
+  .card ul{margin-top:10px;padding-left:18px;font-size:.92rem;color:#40626b}
+
+  /* TIMELINE */
+  .tl{border-left:3px dashed var(--ce-teal);margin-left:14px;padding-left:26px}
+  .tl li{list-style:none;position:relative;padding-bottom:26px}
+  .tl li::before{content:'';position:absolute;left:-35px;top:6px;width:14px;height:14px;
+        background:var(--ce-green);border:3px solid #fff;border-radius:50%;box-shadow:0 0 0 2px var(--ce-green)}
+  .tl b{color:var(--ce-green)}
+
+  /* CTA */
+  .cta{background:var(--grad);color:#fff;text-align:center;padding:70px 20px;border-radius:26px;
+        margin:0 20px 70px;max-width:1110px;margin-inline:auto}
+  .cta h2{font-size:1.9rem;font-weight:800;margin-bottom:10px}
+  .cta .btn{background:#fff;color:var(--ce-green);margin-top:22px;font-size:1.05rem;padding:15px 44px}
+
+  footer{background:var(--ce-dark);color:#b9d2d6;text-align:center;padding:34px 20px;font-size:.88rem}
+  footer img{height:54px;background:#fff;border-radius:50%;padding:7px;margin-bottom:12px}
+  @media(max-width:700px){.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <img src="logo.png" alt="CED Logo">
+    <div class="brand"><b>CE Walk–Run</b><span>ภาควิชาคอมพิวเตอร์ศึกษา</span></div>
+    <nav class="nav-links">
+      <a href="#about">เกี่ยวกับ</a>
+      <a href="#type">ประเภทการแข่งขัน</a>
+      <a href="#sched">กำหนดการ</a>
+    </nav>
+    <a class="btn btn-sm" href="https://script.google.com/macros/s/AKfycbyAB8t_yFEtkcF95iJ5g7Kq6_GR35AkqYv85os823T2HRMyQoEyaf-hMjNaSu-eAYa9/exec" target="_blank" rel="noopener">สมัครเลย</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-in">
+    <img class="hero-logo" src="logo.png" alt="CE Logo">
+    <div class="tag">ภาควิชาคอมพิวเตอร์ศึกษา • คณะครุศาสตร์อุตสาหกรรม</div>
+    <h1>โครงการ <em>เดิน–วิ่ง</em><br>CE Walk &amp; Run</h1>
+    <p>ร่วมออกกำลังกายเพื่อสุขภาพ สร้างความสามัคคีระหว่างนักศึกษา ศิษย์เก่า และบุคลากร<br>พร้อมสมทบทุนการศึกษาให้นักศึกษาภาควิชาคอมพิวเตอร์ศึกษา</p>
+    <a class="btn" href="https://script.google.com/macros/s/AKfycbyAB8t_yFEtkcF95iJ5g7Kq6_GR35AkqYv85os823T2HRMyQoEyaf-hMjNaSu-eAYa9/exec" target="_blank" rel="noopener">🏃 ลงทะเบียนเข้าร่วมโครงการ</a>
+    <div class="meta">
+      <div>📍 มจพ. กรุงเทพฯ</div>
+      <div>🕔 ปล่อยตัว 04.45 น.</div>
+      <div>🏅 เหรียญ Finisher ทุกคน</div>
+      <div>👕 เสื้อที่ระลึก</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="title"><h2>เกี่ยวกับโครงการ</h2><div class="bar"></div></div>
+  <div class="cards">
+    <div class="card"><div class="ico">💚</div><h3>เพื่อสุขภาพ</h3><p>ส่งเสริมให้นักศึกษาและบุคลากรใส่ใจการออกกำลังกายอย่างสม่ำเสมอ</p></div>
+    <div class="card"><div class="ico">🤝</div><h3>สร้างเครือข่าย</h3><p>เชื่อมความสัมพันธ์ระหว่างศิษย์เก่า ศิษย์ปัจจุบัน และคณาจารย์ของภาควิชา</p></div>
+    <div class="card"><div class="ico">🎓</div><h3>สมทบทุนการศึกษา</h3><p>รายได้หลังหักค่าใช้จ่ายมอบเป็นทุนการศึกษาแก่นักศึกษาที่ขาดแคลนทุนทรัพย์</p></div>
+  </div>
+</section>
+
+<!-- TYPES -->
+<section id="type">
+  <div class="title"><h2>ประเภทการแข่งขัน</h2><p>เลือกระยะที่เหมาะกับคุณ</p><div class="bar"></div></div>
+  <div class="cards">
+    <div class="card"><div class="ico">🚶</div><h3>Fun Run 3 km</h3><p>เดิน–วิ่งเพื่อสุขภาพ เหมาะสำหรับทุกวัย</p>
+      <div class="price">฿ 350</div>
+      <ul><li>เสื้อที่ระลึก + BIB</li><li>เหรียญรางวัล Finisher</li></ul></div>
+    <div class="card"><div class="ico">🏃</div><h3>Mini Marathon 10 km</h3><p>ระยะยอดนิยม ชิงถ้วยรางวัลตามรุ่นอายุ</p>
+      <div class="price">฿ 550</div>
+      <ul><li>เสื้อที่ระลึก + BIB</li><li>เหรียญ + ถ้วยรางวัล</li><li>จับเวลาด้วยระบบชิป</li></ul></div>
+    <div class="card"><div class="ico">⭐</div><h3>VIP</h3><p>ร่วมสนับสนุนทุนการศึกษาเป็นพิเศษ</p>
+      <div class="price">฿ 1,000</div>
+      <ul><li>เสื้อ VIP + เหรียญพิเศษ</li><li>ถ้วยรางวัล VIP ทุกท่าน</li></ul></div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="sched">
+  <div class="title"><h2>กำหนดการ</h2><div class="bar"></div></div>
+  <ul class="tl">
+    <li><b>04.00 น.</b> — ลงทะเบียน / รับ BIB หน้าอาคารอเนกประสงค์</li>
+    <li><b>04.30 น.</b> — วอร์มอัพร่วมกัน พิธีเปิดโครงการ</li>
+    <li><b>04.45 น.</b> — ปล่อยตัวนักวิ่งระยะ 10 km</li>
+    <li><b>05.15 น.</b> — ปล่อยตัวระยะ Fun Run 3 km</li>
+    <li><b>07.00 น.</b> — พิธีมอบถ้วยรางวัลและปิดโครงการ</li>
+  </ul>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>พร้อมออกสตาร์ทแล้วหรือยัง?</h2>
+  <p>รับจำนวนจำกัด ลงทะเบียนออนไลน์ได้ทันที</p>
+  <a class="btn" href="https://script.google.com/macros/s/AKfycbyAB8t_yFEtkcF95iJ5g7Kq6_GR35AkqYv85os823T2HRMyQoEyaf-hMjNaSu-eAYa9/exec" target="_blank" rel="noopener">ลงทะเบียนเข้าร่วมโครงการ →</a>
+</div>
+
+<footer>
+  <img src="logo.png" alt="CE Logo">
+  <p><b>ภาควิชาคอมพิวเตอร์ศึกษา</b> คณะครุศาสตร์อุตสาหกรรม</p>
+  <p>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</p>
+  <p style="margin-top:10px;opacity:.6">© 2026 CE Walk–Run Project</p>
+</footer>
+
+</body>
+</html>
